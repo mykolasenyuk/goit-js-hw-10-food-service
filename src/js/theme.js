@@ -5,12 +5,13 @@ const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
 };
+// 
 const savedTheme = localStorage.getItem('theme');
-console.log(savedTheme)
 const themeOn = JSON.parse(localStorage.getItem('swiched'));
 themeSwitch.checked = themeOn;
+
+//  Зміна теми при кліку на повзунок і зберігання її в local storage
 function onThemeSwitch(e) {
-  // e.preventDefault();
    document.body.classList.toggle(Theme.LIGHT);
   document.body.classList.toggle(Theme.DARK);
   const switchOn = e.target.checked
@@ -23,6 +24,8 @@ function onThemeSwitch(e) {
     localStorage.setItem('theme',Theme.DARK);
   }
 };
+
+// Збережена тема при загрузці сторінки
 
 function chosenTheme() {
   if (savedTheme) { document.body.classList.add(savedTheme) }
